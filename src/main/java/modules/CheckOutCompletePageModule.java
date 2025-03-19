@@ -1,5 +1,6 @@
 package modules;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageobjects.Cartpageobjects;
 import pageobjects.Checkoutcomcpletepageobjects;
@@ -7,15 +8,15 @@ import pageobjects.Productspageobjects;
 
 public class CheckOutCompletePageModule {
 
-    ChromeDriver c1;
-    public CheckOutCompletePageModule(ChromeDriver c1)
+    WebDriver driver;
+    public CheckOutCompletePageModule(WebDriver driver)
     {
-        this.c1 = c1;
+        this.driver = driver;
     }
     public String getCartHeaderText()
     {
-        c1.findElement(Checkoutcomcpletepageobjects.actualHeaderText).isDisplayed();
-        String actualText = c1.findElement(Checkoutcomcpletepageobjects.actualHeaderText).getText();
+        driver.findElement(Checkoutcomcpletepageobjects.actualHeaderText).isDisplayed();
+        String actualText = driver.findElement(Checkoutcomcpletepageobjects.actualHeaderText).getText();
         System.out.println(actualText);
         return actualText;
     }
@@ -34,9 +35,9 @@ public class CheckOutCompletePageModule {
     public void CheckOutCompletePageValidation(){
 
 
-        c1.findElement(Checkoutcomcpletepageobjects.backHome).click();
-        c1.findElement(Checkoutcomcpletepageobjects.navigationBar).click();
-        c1.findElement(Checkoutcomcpletepageobjects.logOut).click();
+        driver.findElement(Checkoutcomcpletepageobjects.backHome).click();
+        driver.findElement(Checkoutcomcpletepageobjects.navigationBar).click();
+        driver.findElement(Checkoutcomcpletepageobjects.logOut).click();
 
     }
 }

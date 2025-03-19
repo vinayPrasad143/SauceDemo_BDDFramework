@@ -1,19 +1,20 @@
 package modules;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageobjects.Productspageobjects;
 
 public class ProductsModule {
 
-    ChromeDriver c1;
-    public ProductsModule(ChromeDriver c1){
-        this.c1 = c1;
+    WebDriver driver;
+    public ProductsModule(WebDriver driver){
+        this.driver = driver;
     }
 
     public String getHeaderText()
     {
-        c1.findElement(Productspageobjects.verifyProductPageNavigation).isDisplayed();
-        String actualText = c1.findElement(Productspageobjects.verifyProductPageNavigation).getText();
+        driver.findElement(Productspageobjects.verifyProductPageNavigation).isDisplayed();
+        String actualText = driver.findElement(Productspageobjects.verifyProductPageNavigation).getText();
         System.out.println("Actual text: " + actualText);
         return actualText;
     }
@@ -31,9 +32,24 @@ public class ProductsModule {
     }
     public void addProducts(){
 
-        c1.findElement(Productspageobjects.Product1).click();
-        c1.findElement(Productspageobjects.Product2).click();
-        c1.findElement(Productspageobjects.Container).click();
+        driver.findElement(Productspageobjects.Product1).click();
+        driver.findElement(Productspageobjects.Product2).click();
+        driver.findElement(Productspageobjects.Container).click();
 
     }
+
+    public void addProduct1()
+    {
+        driver.findElement(Productspageobjects.Product1).click();
+    }
+    public void addProduct2()
+    {
+        driver.findElement(Productspageobjects.Product2).click();
+    }
+
+    public void clickOnContainer()
+    {
+        driver.findElement(Productspageobjects.Container).click();
+    }
+
 }

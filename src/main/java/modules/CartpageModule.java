@@ -1,20 +1,21 @@
 package modules;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageobjects.Cartpageobjects;
 import pageobjects.Productspageobjects;
 
 public class CartpageModule {
 
-    ChromeDriver c1;
-    public CartpageModule(ChromeDriver c1)
+    WebDriver driver;
+    public CartpageModule(WebDriver driver)
     {
-        this.c1 = c1;
+        this.driver = driver;
     }
     public String getCartHeaderText()
     {
-        c1.findElement(Cartpageobjects.cartPageHeaderText).isDisplayed();
-        String actualText = c1.findElement(Cartpageobjects.cartPageHeaderText).getText();
+        driver.findElement(Cartpageobjects.cartPageHeaderText).isDisplayed();
+        String actualText = driver.findElement(Cartpageobjects.cartPageHeaderText).getText();
         System.out.println("Actual text :" +actualText);
         return actualText;
     }
@@ -32,10 +33,10 @@ public class CartpageModule {
     }
     public void cartPage(){
 
-        c1.findElement(Cartpageobjects.continueShopping).click();
-        c1.findElement(Productspageobjects.Product3).click();
-        c1.findElement(Productspageobjects.Container).click();
-        c1.findElement(Cartpageobjects.checkOut).click();
+        driver.findElement(Cartpageobjects.continueShopping).click();
+        driver.findElement(Productspageobjects.Product3).click();
+        driver.findElement(Productspageobjects.Container).click();
+        driver.findElement(Cartpageobjects.checkOut).click();
 
     }
 }

@@ -1,6 +1,8 @@
 package tests;
 
 import modules.LoginModule;
+import modules.ProductsModule;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -9,21 +11,31 @@ import java.time.Duration;
 
 public class TestCaseBase {
 
-    ChromeDriver c1;
-    LoginModule loginModule;
+    public static WebDriver driver;
+    public static LoginModule loginModule;
+    public static ProductsModule productsModule;
 
-    @BeforeMethod
-    public void setup(){
-        c1 = new ChromeDriver();
-        c1.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        c1.get("https://www.saucedemo.com");
-        c1.manage().window().maximize();
-        loginModule = new LoginModule(c1);
+    @BeforeMethod(alwaysRun = true)
+    public static void setup(){
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.get("https://www.saucedemo.com");
+        driver.manage().window().maximize();
+        loginModule = new LoginModule(driver);
     }
 
-    @AfterMethod
-    public void tearDown(){
-        c1.close();
+    public static void setup(String url){
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.get("https://www.saucedemo.com");
+        driver.manage().window().maximize();
+        loginModule = new LoginModule(driver);
+        productsModule = new ProductsModule(driver);
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public static void tearDown(){
+        driver.close();
     }
 
 

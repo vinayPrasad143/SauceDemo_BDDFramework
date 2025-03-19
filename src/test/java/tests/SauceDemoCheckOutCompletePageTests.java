@@ -2,8 +2,11 @@ package tests;
 
 import modules.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageobjects.Checkoutcomcpletepageobjects;
+import pageobjects.Checkoutinfopageobjects;
 import pageobjects.Checkoutoverviewpageobjects;
 
 import java.time.Duration;
@@ -16,33 +19,30 @@ public class SauceDemoCheckOutCompletePageTests extends TestCaseBase{
     CartpageModule cartpageModule;
     ProductsModule productModule;
 
-    public void setup1(){
+    @BeforeMethod
+    public void checkOutCompletePage_PreReq(){
 
-        productModule = new ProductsModule(c1);
-        cartpageModule = new CartpageModule(c1);
-        checkoutinfopagemodule = new CheckoutInfoPageModule(c1);
-        checkoutoverviewpagemodule = new CheckoutOverviewPageModule(c1);
-        checkoutcompletepagemodule = new CheckOutCompletePageModule(c1);
-    }
-
-    @Test(priority = 9)
-    public void checkOutCompletePageValidation(){
-
-        setup1();
         loginModule.login("standard_user", "secret_sauce");
-        productModule.verifyTheNavigationToProductsPage();
+        productModule = new ProductsModule(driver);
+        cartpageModule = new CartpageModule(driver);
+        checkoutinfopagemodule = new CheckoutInfoPageModule(driver);
+        checkoutoverviewpagemodule = new CheckoutOverviewPageModule(driver);
+        checkoutcompletepagemodule = new CheckOutCompletePageModule(driver);
         productModule.addProducts();
-        cartpageModule.verifyTheNavigationToCartPage();
         cartpageModule.cartPage();
-        checkoutinfopagemodule.VerifyTheNavigationToCheckOutInfoPage();
         checkoutinfopagemodule.EnterValuesCheckOutInInfoPage();
         checkoutinfopagemodule.clickOnCancelButton();
         checkoutinfopagemodule.clickOnCheckOutButton();
         checkoutinfopagemodule.EnterValuesCheckOutInInfoPage();
         checkoutinfopagemodule.clickOnContinueButton();
-        checkoutoverviewpagemodule.verifyTheNavigationToCheckOutOverviewPage();
         checkoutoverviewpagemodule.checkoutOverViewpageValidation();
+    }
+
+    @Test(priority = 9)
+    public void checkOutCompletePageValidation(){
+
         checkoutcompletepagemodule.verifyTheNavigationToCheckOutCompletePage();
+        Assert.assertEquals(checkoutcompletepagemodule.getCartHeaderText(), Checkoutcomcpletepageobjects.expectedValue);
         checkoutcompletepagemodule.CheckOutCompletePageValidation();
     }
 }

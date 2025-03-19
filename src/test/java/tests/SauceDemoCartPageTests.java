@@ -4,7 +4,10 @@ import modules.CartpageModule;
 import modules.LoginModule;
 import modules.ProductsModule;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pageobjects.Cartpageobjects;
 
 import java.time.Duration;
 
@@ -13,19 +16,19 @@ public class SauceDemoCartPageTests extends TestCaseBase {
     CartpageModule cartpageModule;
     ProductsModule productModule;
 
-    public void setup1(){
-        productModule = new ProductsModule(c1);
-        cartpageModule = new CartpageModule(c1);
+    @BeforeMethod
+    public void cartPage_PreReq(){
+        loginModule.login("standard_user", "secret_sauce");
+        productModule = new ProductsModule(driver);
+        cartpageModule = new CartpageModule(driver);
+        productModule.verifyTheNavigationToProductsPage();
+        productModule.addProducts();
     }
 
     @Test(priority = 6)
     public void cartPageValidation(){
-
-        loginModule.login("standard_user", "secret_sauce");
-        setup1();
-        productModule.verifyTheNavigationToProductsPage();
-        productModule.addProducts();
         cartpageModule.verifyTheNavigationToCartPage();
+        Assert.assertEquals(cartpageModule.getCartHeaderText(), Cartpageobjects.expectedcartText);
         cartpageModule.cartPage();
     }
 }

@@ -5,7 +5,10 @@ import modules.CheckoutInfoPageModule;
 import modules.LoginModule;
 import modules.ProductsModule;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pageobjects.Checkoutinfopageobjects;
 
 import java.time.Duration;
 
@@ -16,21 +19,21 @@ public class SauceDemoCheckoutInfoPageTests extends TestCaseBase {
     CartpageModule cartpageModule;
     ProductsModule productModule;
 
-    public void setup1(){
-        productModule = new ProductsModule(c1);
-        cartpageModule = new CartpageModule(c1);
-        checkoutinfopagemodule = new CheckoutInfoPageModule(c1);
+    @BeforeMethod
+    public void checkOutInfoPage_PreReq(){
+        loginModule.login("standard_user", "secret_sauce");
+        productModule = new ProductsModule(driver);
+        cartpageModule = new CartpageModule(driver);
+        checkoutinfopagemodule = new CheckoutInfoPageModule(driver);
+        productModule.addProducts();
+        cartpageModule.cartPage();
     }
 
     @Test(priority = 7)
     public void checkOutInfoPageValidation(){
-        setup1();
-        loginModule.login("standard_user", "secret_sauce");
-        productModule.verifyTheNavigationToProductsPage();
-        productModule.addProducts();
-        cartpageModule.verifyTheNavigationToCartPage();
-        cartpageModule.cartPage();
+
         checkoutinfopagemodule.VerifyTheNavigationToCheckOutInfoPage();
+        Assert.assertEquals(checkoutinfopagemodule.getHaederText(), Checkoutinfopageobjects.expectedValue);
         checkoutinfopagemodule.EnterValuesCheckOutInInfoPage();
         checkoutinfopagemodule.clickOnCancelButton();
         checkoutinfopagemodule.clickOnCheckOutButton();

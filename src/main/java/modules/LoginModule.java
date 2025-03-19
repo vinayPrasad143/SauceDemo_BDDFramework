@@ -1,25 +1,36 @@
 package modules;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageobjects.Loginpageobjects;
 
 public class LoginModule {
 
-    ChromeDriver c1;
-    public LoginModule(ChromeDriver c1){
-        this.c1 = c1;
+    WebDriver driver;
+    public LoginModule(WebDriver driver){
+        this.driver = driver;
     }
 
+    public void enterUserName(String username){
+        driver.findElement(Loginpageobjects.username).sendKeys(username);
+    }
+
+    public void enterPassword(String password){
+        driver.findElement(Loginpageobjects.psw).sendKeys(password);
+    }
+    public void clickLoginButton(){
+        driver.findElement(Loginpageobjects.LoginButton).click();
+    }
 
     public void login(String username, String password){
-        c1.findElement(Loginpageobjects.username).sendKeys(username);
-        c1.findElement(Loginpageobjects.psw).sendKeys(password);
-        c1.findElement(Loginpageobjects.LoginButton).click();
+        driver.findElement(Loginpageobjects.username).sendKeys(username);
+        driver.findElement(Loginpageobjects.psw).sendKeys(password);
+        driver.findElement(Loginpageobjects.LoginButton).click();
     }
 
     public String getErrorMsg(){
-        c1.findElement(Loginpageobjects.validationMessage).isDisplayed();
-        String actualMessage = c1.findElement(Loginpageobjects.validationMessage).getText();
+        driver.findElement(Loginpageobjects.validationMessage).isDisplayed();
+        String actualMessage = driver.findElement(Loginpageobjects.validationMessage).getText();
         return actualMessage;
     }
 
