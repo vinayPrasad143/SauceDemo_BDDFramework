@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "features/Products.feature",
+        features = "features",
         glue = "stepdef",
-        dryRun = false
+        dryRun = false,
 //        tags = "@now"
 //        plugin = {"pretty",
 //               "html:target/cucumber-reports.html",
@@ -17,6 +17,8 @@ import org.junit.runner.RunWith;
 //               "tech.grasshopper.extentreports.cucumber7.adapter.ExtentCucumber7Adapter:"
 //        },
 //        monochrome = true
+          plugin = {"pretty", "html:target/cucumber-reports.html"},
+          monochrome = true
      )
 public class TestRunner {
 }
