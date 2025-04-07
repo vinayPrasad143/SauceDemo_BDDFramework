@@ -28,7 +28,7 @@
           <groupId>org.testng</groupId>
           <artifactId>testng</artifactId>
           <version>7.10.2</version>
-          <scope>test</scope>
+<!--          <scope>test</scope>-->
       </dependency>
 
       <dependency>
@@ -101,6 +101,10 @@
                 <configuration>
                     <source>17</source>
                     <target>17</target>
+                    <includes>
+                        <include>**/TestNGRunner.java</include>
+                    </includes>
+<!--                    <testFailureIgnore>true</testFailureIgnore>-->
                     <compilerArgs>
 <!--                        <arg>&#45;&#45;enable-preview</arg>-->
                         <arg>--add-exports</arg>
