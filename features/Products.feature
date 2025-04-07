@@ -9,30 +9,29 @@ Feature: Products page functionality
 
   @smoke @sanity @regression
   Scenario: Verify whether the user can able to Add multiple items to Cart or Not
-    When click on the item "<Sauce Labs Backpack>"
-    And click on the second item "<Sauce Labs Back Light>"
-    Then Verify the added Items
-    And Verify the increase in count to 2 for the Items Added
+    When click on the first item "Sauce Labs Backpack"
+    And click on the second item "Sauce Labs Back Light"
+    Then Verify the increase in count to 2 for the Items Added
 
   @smoke @sanity @regression
   Scenario: Verify whether the user can able to remove the Items from the cart or not
-    When click on the item "<Sauce Labs Backpack>"
-    And click on the item "<Sauce Labs Back Light>"
-    And click on Remove button on the Item "<Sauce Labs Backpack>"
-    And click on Remove button on the Item "<Sauce Labs Back Light>"
-    Then Verify that the Items added to the cart are removed
-    And Verify the decrease in count to 0 for the Items removed
+    When click on the first item "Sauce Labs Backpack"
+    And click on the second item "Sauce Labs Fleece Jacket"
+    And click on Remove button on the Item "Sauce Labs Fleece Jacket"
+    Then Verify the decrease in count to 1 for the Items removed
 
-  @regression @sanity
-  Scenario Outline: Validate the display of the Dropdown values
+  @regression @sanity @now
+  Scenario: Validate the display of the Dropdown values
     When click on dropdown filter
-    Then Verify the display of the "<filter values>"
+    And Retrieves option from the "dropdownmenu"
+    Then The dropdown should contain the following values:
+      | Name (A to Z)       |
+      | Name (Z to A)       |
+      | Price (low to high) |
+      | Price (high to low) |
+    Then I select each dropdown value and verify the displayed selection
+    Then I validate that products are sorted correctly by filter selection
 
-    Examples:
-      | filter values      |
-      | Name(A to Z)        |
-      | Name(Z to A)       |
-      | Price(Low to High) |
-      | Price(High to Low) |
+
 
 

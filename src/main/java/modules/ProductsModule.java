@@ -19,6 +19,16 @@ public class ProductsModule {
         return actualText;
     }
 
+    public int getNumber()
+    {
+        driver.findElement(Productspageobjects.verifyTheNumberOfItemsPresentInTheCart).isDisplayed();
+        String actualText = driver.findElement(Productspageobjects.verifyTheNumberOfItemsPresentInTheCart).getText();
+        int actualNum = Integer.parseInt(actualText.trim());
+        System.out.println("Actual text: " + actualNum);
+        return actualNum;
+    }
+
+
     public void verifyTheNavigationToProductsPage()
     {
         String actualText = getHeaderText();
@@ -51,5 +61,21 @@ public class ProductsModule {
     {
         driver.findElement(Productspageobjects.Container).click();
     }
+
+    public void removeItem(String string)
+    {
+        driver.findElement(Productspageobjects.removeItem).click();
+    }
+
+    public void clickOnDropDown()
+    {
+        driver.findElement(Productspageobjects.dropDown).click();
+    }
+
+    public void dropDownValues()
+    {
+        driver.findElement(Productspageobjects.dropDownValues);
+    }
+
 
 }

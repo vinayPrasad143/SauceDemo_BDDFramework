@@ -16,10 +16,10 @@ public class Loginstepdef {
     public void click_on_the_login_button() {
         TestCaseBase.loginModule.clickLoginButton();
     }
-//    @Then("Verify the navigation of the home page")
-//    public void verify_the_navigation_of_the_home_page() {
-//
-//    }
+    @Then("Verify the navigation of the home page")
+    public void verify_the_navigation_of_the_home_page() {
+
+    }
     @When("Enter {string} in the username field")
     public void enter_in_the_username_field(String string) {
         TestCaseBase.loginModule.enterUserName(string);
