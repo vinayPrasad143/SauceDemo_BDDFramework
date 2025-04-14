@@ -1,4 +1,4 @@
-@system_test
+@system_test @saucedemo
 Feature: Login functionality
   #Gherkin language
   Background:

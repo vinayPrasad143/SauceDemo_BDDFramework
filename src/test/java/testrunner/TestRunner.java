@@ -7,16 +7,16 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "features",
-        glue = "stepdef",
+        features = "ruthfeatures/Augment.feature",
+        glue = "ruthstepdef",
         dryRun = false,
-//        tags = "@now"
+        tags = "@augment",
 //        plugin = {"pretty",
 //               "html:target/cucumber-reports.html",
 //               "json:target/cucumber.json",
 //               "tech.grasshopper.extentreports.cucumber7.adapter.ExtentCucumber7Adapter:"
 //        },
-//        monochrome = true
+//        monochrome = true,
           plugin = {"pretty", "html:target/cucumber-reports.html"},
           monochrome = true
      )
