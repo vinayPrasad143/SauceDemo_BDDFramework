@@ -1,3 +1,4 @@
+@system_test
 Feature: Compare page Functionality
 
   Background:

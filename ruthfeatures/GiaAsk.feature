@@ -9,13 +9,15 @@ Feature: GIA ASK page Functionality
     And click on the SignIn button
     And Click on stay signedIn no button
     Then Verify the navigation of the ASKGIA page
-@now
+@askgia
     Scenario: Validate the functionality of the GIA ASK page
       Given Enter the "What are the differences between respondent types?" in the query search box
       And Click on the search Query button
       Then Verify the display of the Response
+      And click on like icon and verify the like icon is highlighted or not
+      And click on unlike icon and verify the unlike icon is highlighted or not
+      And click on the copy and verify that the copy of the response is copied to the word doc or not
       And click on the citations icon
       And Verify the citations
-      And click on like button and verify the like button is highlighted or not
-      And click on unlike button and verify the unlike button is highlighted or not
+
 

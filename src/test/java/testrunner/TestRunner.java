@@ -7,10 +7,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "ruthfeatures/Augment.feature",
+        features = "ruthfeatures/AdvancedAnalysis.feature",
         glue = "ruthstepdef",
         dryRun = false,
-        tags = "@augment",
+        tags = "@advancedanalysis",
 //        plugin = {"pretty",
 //               "html:target/cucumber-reports.html",
 //               "json:target/cucumber.json",

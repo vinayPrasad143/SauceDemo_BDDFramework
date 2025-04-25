@@ -25,6 +25,7 @@ public class TestCaseBase {
     public static WordCloudModule wordcloudmodule;
     public static CompareModule comparemodule;
     public static AdvancedAnalysisModule advancedanalysismodule;
+    public static QualDeepDiveModule qualdeepdivemodule;
 
     @BeforeMethod(alwaysRun = true)
     public static void setup(){
@@ -45,7 +46,7 @@ public class TestCaseBase {
         options.addArguments("--incognito");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.get("https://gia-test.graphenesvc.com/");
+        driver.get("https://gia-demo.graphenesvc.com/");
         driver.manage().window().maximize();
         loginModule = new LoginModule(driver);
         productsModule = new ProductsModule(driver);
@@ -56,6 +57,8 @@ public class TestCaseBase {
         wordcloudmodule = new WordCloudModule(driver);
         comparemodule = new CompareModule(driver);
         advancedanalysismodule = new AdvancedAnalysisModule(driver);
+        qualdeepdivemodule = new QualDeepDiveModule(driver);
+
     }
 
     @AfterMethod(alwaysRun = true)

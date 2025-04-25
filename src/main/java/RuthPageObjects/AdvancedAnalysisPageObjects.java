@@ -6,7 +6,7 @@ public class AdvancedAnalysisPageObjects {
 
                 public static By advancedAnalysisTab = By.xpath("//*[@id=\"root\"]/div/div/div/div[1]/nav/div/ul[1]/li[2]/a[1]/div");
                 public static By collapseExpandButton = By.xpath("//*[@class=\"MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters css-3pzm2w\"]");
-                public static String expectedHeaderText = "https://gia-test.graphenesvc.com/projects/1/advanced-analysis";
+                public static String expectedHeaderText = "https://gia-demo.graphenesvc.com/projects/1/advanced-analysis";
                 public static By HeaderText = By.xpath("//p[contains(text(),'TOPICS OF INTEREST')]");
                 public static By countryFilter = By.xpath("(//div[@role='combobox'])[1]");
                 public static By selectedCountryFilter = By.xpath("(//div[@role='combobox']//span)[1]");
@@ -28,6 +28,9 @@ public class AdvancedAnalysisPageObjects {
                 public static By likeDisLikeCopyClicks = By.xpath("//button[@aria-label='Helpful' or @aria-label='Not helpful' or @aria-label='Copy text']");
                 public static By VerifyResponseGenerated = By.xpath("//div[contains(@class,'wmde-markdown')]");
                 public static String expectedCombination1 = "Country: Canada ; Category: Facial Cleanser ; Time period: 2023H2 ; Respondent type: Women";
-
+                public static By helpfulIcon = By.xpath("//button[@aria-label='Helpful']");
+                public static By helpfulIconHighlighted = By.xpath("//button[@aria-label='Helpful']//svg");
+                public static By notHelpfulIcon = By.xpath("//button[@aria-label='Not helpful']");
+                public static By notHelpfulIconHighlighted = By.xpath("(//*[@id=\"Filled\"])[2]");
 
 }

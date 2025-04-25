@@ -1,3 +1,4 @@
+@system_test
 Feature: AdvancedAnalysis page Functionality
 
   Background:
@@ -20,8 +21,10 @@ Feature: AdvancedAnalysis page Functionality
     And select "<time period>" from the Time period dropdown filter
     And select "<respondent type>" from the Respondent Type dropdown filter
     Then user should see the result for for all the Topics for "<country>" and "<category>" and "<time period>" and "<respondent type>" combination
-    Then I click all feedback buttons and save the third feedback to a Word file
-    Then user should see filter summary as "Country: <country> ; Category: <category> ; Time period: <time period> ; Respondent type: <respondent type>"
+    And click on Helpful icon and verify the Helpful icon is highlighted or not
+    And click on NotHelpful icon and verify the NotHelpful icon is highlighted or not
+    And click on the copy icon and verify that the copy of the response is copied to the word doc or not
+    And user should see filter summary as "Country: <country> ; Category: <category> ; Time period: <time period> ; Respondent type: <respondent type>"
     Examples:
 
       | country | category        | time period | respondent type |

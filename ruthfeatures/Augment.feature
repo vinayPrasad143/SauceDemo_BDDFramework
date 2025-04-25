@@ -1,3 +1,4 @@
+@system_test
 Feature: Augment page Functionality
 
   Background:
@@ -16,7 +17,7 @@ Feature: Augment page Functionality
     When I select "<country>" from the country dropdown
     And I select "<category>" from the category dropdown
     And I select "<time period>" from the Time period dropdown
-    Then I should see the result for "<country>" and "<category>" and "<time period>"
+    Then I should see the result for "<country>" and "<category>" and "<time period>" by selecting each themes for all the Topics of interests
 
     Examples:
 

@@ -1,3 +1,4 @@
+@system_test
 Feature: Word Cloud page Functionality
 
   Background:

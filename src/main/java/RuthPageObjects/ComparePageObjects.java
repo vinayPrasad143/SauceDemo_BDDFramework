@@ -6,7 +6,7 @@ public class ComparePageObjects {
 
     public static By compareTab = By.xpath("//*[@id=\"root\"]/div/div/div/div[1]/nav/div/ul[1]/li[3]/a[1]/div");
     public static By HeaderText = By.xpath("//p[contains(text(),'TOPICS OF INTEREST')]");
-    public static String expectedHeaderText = "https://gia-test.graphenesvc.com/projects/1/comparison";
+    public static String expectedHeaderText = "https://gia-demo.graphenesvc.com/projects/1/comparison";
     public static By countryFilter = By.xpath("(//div[@role='combobox'])[2]");
     public static By selectedCountryFilter = By.xpath("(//div[@role='combobox']//span)[2]");
     public static By categoryFilter = By.xpath("(//div[@role='combobox'])[1]");

@@ -1,3 +1,4 @@
+@system_test
 Feature: Automate Tab Functionality
   Background:
     Given Open the chrome browser and Navigate to "https://gia-test.graphenesvc.com/"

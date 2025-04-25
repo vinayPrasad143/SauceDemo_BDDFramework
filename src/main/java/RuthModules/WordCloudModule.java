@@ -118,6 +118,7 @@ public class WordCloudModule {
                         element.click();
                         if(i==2) {
                             System.out.println("✅ Clicked on positive sentiment: " + i);
+                            Thread.sleep(2000);
                             try {
                                 wait.until(ExpectedConditions.presenceOfElementLocated(WordCloudPageObjects.dataLoad));
                                 System.out.println("✅ data loaded");
@@ -129,6 +130,7 @@ public class WordCloudModule {
                         }
                         else if(i==3) {
                             System.out.println("✅ Clicked on Neutral sentiment: " + i);
+                            Thread.sleep(2000);
                             try {
                                 wait.until(ExpectedConditions.presenceOfElementLocated(WordCloudPageObjects.dataLoad));
                                 System.out.println("✅ data loaded");
@@ -141,6 +143,7 @@ public class WordCloudModule {
                         }
                         else {
                             System.out.println("✅ Clicked on Negative sentiment: " + i);
+                            Thread.sleep(2000);
                             try {
                                 wait.until(ExpectedConditions.presenceOfElementLocated(WordCloudPageObjects.dataLoad));
                                 System.out.println("✅ data loaded");

@@ -84,10 +84,12 @@ public class AugmentStepDef {
             Assert.fail("selected and expected Time periods are not matching");
         }
     }
-    @Then("I should see the result for {string} and {string} and {string}")
+    @Then("I should see the result for {string} and {string} and {string} by selecting each themes for all the Topics of interests")
     public void i_should_see_the_result_for_and_and(String string, String string2, String string3) {
 
         System.out.println("Validated combinations: " + string + "," + string2 + "," + string3);
+        TestCaseBase.augmentmodule.testSentiments(1,2);
         TestCaseBase.augmentmodule.clickOnEachBrandANDTheme();
+
     }
 }

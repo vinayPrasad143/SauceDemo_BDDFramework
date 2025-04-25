@@ -2,6 +2,7 @@ package RuthModules;
 
 import RuthPageObjects.AdvancedAnalysisPageObjects;
 import RuthPageObjects.ComparePageObjects;
+import RuthPageObjects.GiaAskPageObjects;
 import RuthPageObjects.WordCloudPageObjects;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -116,13 +117,64 @@ public class AdvancedAnalysisModule {
 
     }
 
-    public String clickOnLikeDislikeAndCopyGeneratedResponseFromCopyTextIcon() {
+//    public String copyGeneratedResponseFromCopyTextIcon() {
+//        List<WebElement> buttons = driver.findElements(AdvancedAnalysisPageObjects.likeDisLikeCopyClicks);
+//        String copiedText = "";
+//
+//        for (int i = 0; i < buttons.size(); i++) {
+//            buttons.get(i).click();
+//            if (i==0) {
+//
+//            }
+//            if (i == 2) {
+//                copiedText = driver.findElement(AdvancedAnalysisPageObjects.VerifyResponseGenerated).getText();
+//            }
+//        }
+//        return copiedText;
+//    }
+
+    public void clickHelpfulButton() {
+        driver.findElement(AdvancedAnalysisPageObjects.helpfulIcon).click();
+    }
+
+    public boolean isHelpfulButtonDisplayed() {
+        return driver.findElement(AdvancedAnalysisPageObjects.helpfulIcon).isDisplayed();
+    }
+
+    public boolean isHelpfulButtonEnabled() {
+        return driver.findElement(AdvancedAnalysisPageObjects.helpfulIcon).isEnabled();
+    }
+
+    public String getHelpfulIconClass() {
+        return driver.findElement(AdvancedAnalysisPageObjects.helpfulIconHighlighted).getAttribute("class");
+    }
+
+    public void clickOnNotHelpfulButton() {
+        driver.findElement(AdvancedAnalysisPageObjects.notHelpfulIcon).click();
+    }
+
+    public boolean isNotHelpfulButtonDisplayed() {
+        return driver.findElement(AdvancedAnalysisPageObjects.notHelpfulIcon).isDisplayed();
+    }
+
+    public boolean isNotHelpfulButtonEnabled() {
+        return driver.findElement(AdvancedAnalysisPageObjects.notHelpfulIcon).isEnabled();
+    }
+
+    public String getNotHelpfulIconClass() {
+        return driver.findElement(AdvancedAnalysisPageObjects.notHelpfulIconHighlighted).getAttribute("class");
+    }
+
+    public String copyGeneratedResponseFromCopyTextIcon() {
         List<WebElement> buttons = driver.findElements(AdvancedAnalysisPageObjects.likeDisLikeCopyClicks);
         String copiedText = "";
 
         for (int i = 0; i < buttons.size(); i++) {
-            buttons.get(i).click();
+            if (i==0) {
+
+            }
             if (i == 2) {
+                buttons.get(i).click();
                 copiedText = driver.findElement(AdvancedAnalysisPageObjects.VerifyResponseGenerated).getText();
             }
         }

@@ -1,7 +1,6 @@
 package ruthstepdef;
 
 import RuthPageObjects.AdvancedAnalysisPageObjects;
-import RuthPageObjects.WordCloudPageObjects;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -126,8 +125,45 @@ public class AdvancedAnalysisStepDef {
 
     @Then("I click all feedback buttons and save the third feedback to a Word file")
     public void clickFeedbackAndSaveToWord() {
-        String responseGenerated = TestCaseBase.advancedanalysismodule.clickOnLikeDislikeAndCopyGeneratedResponseFromCopyTextIcon();
+        String responseGenerated = TestCaseBase.advancedanalysismodule.copyGeneratedResponseFromCopyTextIcon();
         WordUtility.writeToWordDoc(responseGenerated, "D:\\Github_location\\seleniumlearning\\src\\main\\java\\Responses\\GeneratedResponse.docx");
+    }
+
+    @Then("click on Helpful icon and verify the Helpful icon is highlighted or not")
+    public void click_on_like_button_and_verify_the_like_button_is_highlighted_or_not() {
+        Assert.assertTrue("Helpful icon is not displayed", TestCaseBase.advancedanalysismodule.isHelpfulButtonDisplayed());
+        Assert.assertTrue("Helpful icon is not enabled", TestCaseBase.advancedanalysismodule.isHelpfulButtonEnabled());
+
+        TestCaseBase.advancedanalysismodule.clickHelpfulButton();
+        System.out.println("Click on Helpful icon");
+        // Optionally wait for DOM update
+        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
+        String iconClass = TestCaseBase.advancedanalysismodule.getHelpfulIconClass();
+        System.out.println("Post-click SVG class: " + iconClass);
+        // Replace with your actual highlighted class if different
+        Assert.assertTrue("Helpfull icon is not highlighted after click", iconClass.contains("fill-brand-dark"));
+
+    }
+    @Then("click on NotHelpful icon and verify the NotHelpful icon is highlighted or not")
+    public void click_on_unlike_button_and_verify_the_unlike_button_is_highlighted_or_not() {
+        Assert.assertTrue("NotHelpful icon is not displayed", TestCaseBase.advancedanalysismodule.isNotHelpfulButtonDisplayed());
+        Assert.assertTrue("NotHelpful icon is not enabled", TestCaseBase.advancedanalysismodule.isNotHelpfulButtonEnabled());
+
+        TestCaseBase.advancedanalysismodule.clickOnNotHelpfulButton();
+        System.out.println("Click on NotHelpful icon");
+
+        // Optionally wait for DOM update
+        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
+        String iconClass = TestCaseBase.advancedanalysismodule.getNotHelpfulIconClass();
+        System.out.println("Post-click SVG class: " + iconClass);
+        // Replace with your actual highlighted class if different
+        Assert.assertTrue("NotHelpful Button is not highlighted after click", iconClass.contains("fill-brand-dark"));
+    }
+
+    @Then("click on the copy icon and verify that the copy of the response is copied to the word doc or not")
+    public void click_on_the_copy_and_verify_that_the_copy_of_the_response_is_copied_to_the_word_doc_or_not(){
+        String responseGenerated = TestCaseBase.advancedanalysismodule.copyGeneratedResponseFromCopyTextIcon();
+        WordUtility.writeToWordDoc(responseGenerated, "D:\\Github_location\\seleniumlearning\\src\\main\\java\\Responses\\GeneratedResponseonAApage.docx");
     }
 
     @Then("^user should see filter summary as \"([^\"]*) ; Category: ([^\"]*) ; Time period: ([^\"]*) ; Respondent type: ([^\"]*)\"$")
