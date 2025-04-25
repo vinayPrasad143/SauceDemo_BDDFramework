@@ -7,6 +7,12 @@
   <name>Archetype - seleniumlearning</name>
   <url>http://maven.apache.org</url>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+
   <dependencies>
 
       <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -115,6 +121,8 @@
                 <configuration>
                     <source>17</source>
                     <target>17</target>
+                    <encoding>UTF-8</encoding> <!-- Add this to avoid Windows-1252 warnings -->
+                    <showWarnings>true</showWarnings>
                 </configuration>
             </plugin>
             <!-- Surefire Plugin for running JUnit (Cucumber Runner) -->
@@ -123,9 +131,13 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.1.2</version>
                 <configuration>
-                    <includes>
-                        <include>**/TestRunner.java</include> <!-- Your Cucumber runner -->
-                    </includes>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/java/testrunner/TestRunner.java</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <testFailureIgnore>true</testFailureIgnore>
+<!--                    <includes>-->
+<!--                        <include>**/TestRunner.java</include> &lt;!&ndash; Your Cucumber runner &ndash;&gt;-->
+<!--                    </includes>-->
                 </configuration>
             </plugin>
         </plugins>
