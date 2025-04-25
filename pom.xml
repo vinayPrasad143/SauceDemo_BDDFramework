@@ -108,7 +108,7 @@
                     <source>17</source>
                     <target>17</target>
                     <includes>
-                        <include>**/TestNGRunner.java</include>
+                        <include>**/TestRunner.java</include>
                     </includes>
 <!--                    <testFailureIgnore>true</testFailureIgnore>-->
                     <compilerArgs>

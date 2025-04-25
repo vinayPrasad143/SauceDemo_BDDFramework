@@ -29,7 +29,7 @@ public class AdvancedAnalysisPageObjects {
                 public static By VerifyResponseGenerated = By.xpath("//div[contains(@class,'wmde-markdown')]");
                 public static String expectedCombination1 = "Country: Canada ; Category: Facial Cleanser ; Time period: 2023H2 ; Respondent type: Women";
                 public static By helpfulIcon = By.xpath("//button[@aria-label='Helpful']");
-                public static By helpfulIconHighlighted = By.xpath("//button[@aria-label='Helpful']//svg");
+                public static By helpfulIconHighlighted = By.xpath("(//*[@id=\"Filled\"])[1]");
                 public static By notHelpfulIcon = By.xpath("//button[@aria-label='Not helpful']");
                 public static By notHelpfulIconHighlighted = By.xpath("(//*[@id=\"Filled\"])[2]");
 
