@@ -1,0 +1,6 @@
+<configuration>
+    <theme>DARK</theme>
+    <documentTitle>Automation Test Results</documentTitle>
+    <reportName>Regression Suite - GIA Automation</reportName>
+    <timelineEnabled>true</timelineEnabled>
+</configuration>

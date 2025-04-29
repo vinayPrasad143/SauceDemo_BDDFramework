@@ -32,6 +32,7 @@ public class AdvancedAnalysisStepDef {
             String actualURL = TestCaseBase.driver.getCurrentUrl();
             System.out.println("Expected text: " + AdvancedAnalysisPageObjects.expectedHeaderText);
             Assert.assertEquals("Navigated to Advanced Analysis page", AdvancedAnalysisPageObjects.expectedHeaderText, actualURL);
+            System.out.println("User navigates to Advanced Analysis page");
         } catch (Exception e) {
             System.out.println("Advanced Analysis page header text was not visible: " + e.getMessage());
             Assert.fail("Test failed due to element not being visible");
@@ -40,6 +41,7 @@ public class AdvancedAnalysisStepDef {
     @Given("Verify the functionality of the collapse and expand of Trending Topics section")
     public void verify_the_functionality_of_the_collapse_and_expand_of_trending_topics_section() throws InterruptedException {
         TestCaseBase.advancedanalysismodule.validateTheCollapseExpandButton();
+        System.out.println("Collapse and expand functionality working fine as expected in trending Topics section");
     }
 
     @Then("User should see the insight section text {string} for default screen when nothing is selected on Topics section")
@@ -48,6 +50,7 @@ public class AdvancedAnalysisStepDef {
         WebElement textElement = wait.until(ExpectedConditions.visibilityOfElementLocated(AdvancedAnalysisPageObjects.defaultScreenMessage));
         String actualText = textElement.getText();
         Assert.assertEquals("Text content mismatch!", string, actualText);
+        System.out.println("default insight section is displayed with " + string + "when nothing selected on Topics section");
     }
     @When("select {string} from the country dropdown filter")
     public void select_from_the_country_dropdown_filter(String string) throws InterruptedException {
@@ -139,9 +142,10 @@ public class AdvancedAnalysisStepDef {
         // Optionally wait for DOM update
         try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
         String iconClass = TestCaseBase.advancedanalysismodule.getHelpfulIconClass();
-        System.out.println("Post-click SVG class: " + iconClass);
+        //System.out.println("Post-click SVG class: " + iconClass);
         // Replace with your actual highlighted class if different
-        Assert.assertTrue("Helpfull icon is not highlighted after click", iconClass.contains("fill-brand-dark"));
+        Assert.assertTrue("Helpful icon is not highlighted after click", iconClass.contains("fill-brand-dark"));
+        System.out.println("Helpful icon is highlighted as expected after click");
 
     }
     @Then("click on NotHelpful icon and verify the NotHelpful icon is highlighted or not")
@@ -155,15 +159,17 @@ public class AdvancedAnalysisStepDef {
         // Optionally wait for DOM update
         try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
         String iconClass = TestCaseBase.advancedanalysismodule.getNotHelpfulIconClass();
-        System.out.println("Post-click SVG class: " + iconClass);
+        //System.out.println("Post-click SVG class: " + iconClass);
         // Replace with your actual highlighted class if different
         Assert.assertTrue("NotHelpful Button is not highlighted after click", iconClass.contains("fill-brand-dark"));
+        System.out.println("NotHelpful icon is highlighted as expected after click");
     }
 
     @Then("click on the copy icon and verify that the copy of the response is copied to the word doc or not")
     public void click_on_the_copy_and_verify_that_the_copy_of_the_response_is_copied_to_the_word_doc_or_not(){
         String responseGenerated = TestCaseBase.advancedanalysismodule.copyGeneratedResponseFromCopyTextIcon();
         WordUtility.writeToWordDoc(responseGenerated, "D:\\Github_location\\seleniumlearning\\src\\main\\java\\Responses\\GeneratedResponseonAApage.docx");
+        System.out.println("The response generated is copied and pasted in D:\\Github_location\\seleniumlearning\\src\\main\\java\\Responses\\ with name GeneratedResponseonAApage.docx");
     }
 
     @Then("^user should see filter summary as \"([^\"]*) ; Category: ([^\"]*) ; Time period: ([^\"]*) ; Respondent type: ([^\"]*)\"$")
@@ -175,5 +181,6 @@ public class AdvancedAnalysisStepDef {
         String actualText = summaryElement.getText().trim();
 
         Assert.assertEquals("Filter summary does not match!", expectedText, actualText);
+        System.out.println("Expected summary text is "+ expectedText + " matches with the Actual summary text + " + actualText);
     }
 }

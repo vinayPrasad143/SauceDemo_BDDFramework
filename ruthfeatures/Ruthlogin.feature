@@ -3,7 +3,7 @@ Feature: Login functionality
   #Gherkin language
   Background:
     Given Open the chrome browser and Navigate to "https://gia-test.graphenesvc.com/"
-@smoke
+@smoke @login
   Scenario: Validate the login with the Valid Credentials
     When click on the GrapheneLogo
     And Enter "vinayprasad@graphenesvc.com" in the username field

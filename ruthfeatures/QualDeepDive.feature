@@ -1,4 +1,4 @@
-@system_test
+
 Feature: Qual Deep Dive page Functionality
 
   Background:

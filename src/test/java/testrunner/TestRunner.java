@@ -7,17 +7,20 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "ruthfeatures/AdvancedAnalysis.feature",
+        features = "ruthfeatures",
         glue = "ruthstepdef",
         dryRun = false,
-        tags = "@advancedanalysis",
+        tags = "@login",
 //        plugin = {"pretty",
 //               "html:target/cucumber-reports.html",
 //               "json:target/cucumber.json",
 //               "tech.grasshopper.extentreports.cucumber7.adapter.ExtentCucumber7Adapter:"
 //        },
 //        monochrome = true,
-          plugin = {"pretty", "html:target/cucumber-reports.html"},
+          plugin = {"pretty",
+                  "html:target/cucumber-reports.html",
+                  "json:target/cucumber.json",
+                  "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
           monochrome = true
      )
 public class TestRunner {

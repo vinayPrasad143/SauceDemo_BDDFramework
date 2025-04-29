@@ -29,4 +29,4 @@ Feature: AdvancedAnalysis page Functionality
 
       | country | category        | time period | respondent type |
       | Canada  | Facial Cleanser | 2023H2      | Women           |
-      | USA     | Facial Cleanser | 2024H2      | Men             |
+

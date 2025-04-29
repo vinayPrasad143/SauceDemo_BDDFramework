@@ -1,4 +1,4 @@
-@system_test
+
 Feature: Augment page Functionality
 
   Background:

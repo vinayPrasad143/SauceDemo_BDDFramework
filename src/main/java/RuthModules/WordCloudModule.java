@@ -27,7 +27,7 @@ public class WordCloudModule {
     {
         driver.findElement(WordCloudPageObjects.HeaderText).isDisplayed();
         String actualText = driver.findElement(WordCloudPageObjects.HeaderText).getText();
-        System.out.println("Actual text: " + actualText);
+       // System.out.println("Actual text: " + actualText);
         return actualText;
     }
 
@@ -38,7 +38,7 @@ public class WordCloudModule {
 
     public String validateTheSelectedCountryValue() {
         String actualText = driver.findElement(WordCloudPageObjects.selectedCountryFilter).getText();
-        System.out.println("Actual text: " + actualText);
+       // System.out.println("Actual selected country value: " + actualText);
         return actualText;
     }
 
@@ -49,7 +49,7 @@ public class WordCloudModule {
 
     public String validateTheSelectedCategoryValue() {
         String actualText = driver.findElement(WordCloudPageObjects.selectedCategoryFilter).getText();
-        System.out.println("Actual text: " + actualText);
+       // System.out.println("Actual text: " + actualText);
         return actualText;
     }
     public void clickOnTimePeriodDropDown()
@@ -59,7 +59,7 @@ public class WordCloudModule {
 
     public String validateTheSelectedTimePeriodValue() {
         String actualText = driver.findElement(WordCloudPageObjects.selectedTimePeriodFilter).getText();
-        System.out.println("Actual text: " + actualText);
+       // System.out.println("Actual text: " + actualText);
         return actualText;
     }
 
@@ -70,7 +70,7 @@ public class WordCloudModule {
 
     public String validateTheSelectedRespondentTypeValue() {
         String actualText = driver.findElement(WordCloudPageObjects.selectedRespondentTypeFilter).getText();
-        System.out.println("Actual text: " + actualText);
+      //  System.out.println("Actual text: " + actualText);
         return actualText;
     }
 
@@ -81,7 +81,7 @@ public class WordCloudModule {
 
     public String validateTheSelectedBrandValue() {
         String actualText = driver.findElement(WordCloudPageObjects.selectedBrandFilter).getText();
-        System.out.println("Actual text: " + actualText);
+      //  System.out.println("Actual text: " + actualText);
         return actualText;
     }
 
@@ -102,7 +102,7 @@ public class WordCloudModule {
             // Extract text from <span> inside the clicked element
             WebElement span = item.findElement(WordCloudPageObjects.TOIName);
             String itemName = span.getText().trim();
-            System.out.println("Clicked item: " + itemName);
+            System.out.println("Selected Topic: " + itemName);
 
             try {
                 wait.until(ExpectedConditions.presenceOfElementLocated(WordCloudPageObjects.dataLoad));
@@ -117,8 +117,8 @@ public class WordCloudModule {
                         Thread.sleep(1000);
                         element.click();
                         if(i==2) {
-                            System.out.println("✅ Clicked on positive sentiment: " + i);
-                            Thread.sleep(2000);
+                            System.out.println("✅ Clicked on positive sentiment");
+                            Thread.sleep(1000);
                             try {
                                 wait.until(ExpectedConditions.presenceOfElementLocated(WordCloudPageObjects.dataLoad));
                                 System.out.println("✅ data loaded");
@@ -129,8 +129,8 @@ public class WordCloudModule {
                             }
                         }
                         else if(i==3) {
-                            System.out.println("✅ Clicked on Neutral sentiment: " + i);
-                            Thread.sleep(2000);
+                            System.out.println("✅ Clicked on Neutral sentiment");
+                            Thread.sleep(1000);
                             try {
                                 wait.until(ExpectedConditions.presenceOfElementLocated(WordCloudPageObjects.dataLoad));
                                 System.out.println("✅ data loaded");
@@ -142,8 +142,8 @@ public class WordCloudModule {
 
                         }
                         else {
-                            System.out.println("✅ Clicked on Negative sentiment: " + i);
-                            Thread.sleep(2000);
+                            System.out.println("✅ Clicked on Negative sentiment");
+                            Thread.sleep(1000);
                             try {
                                 wait.until(ExpectedConditions.presenceOfElementLocated(WordCloudPageObjects.dataLoad));
                                 System.out.println("✅ data loaded");
@@ -164,10 +164,6 @@ public class WordCloudModule {
             }
 
         }
-    }
-    public void checkForDataLoading(){
-
-
     }
 
 }

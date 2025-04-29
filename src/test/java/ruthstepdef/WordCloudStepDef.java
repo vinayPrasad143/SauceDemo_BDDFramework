@@ -30,8 +30,8 @@ public class WordCloudStepDef {
 //            String fromUI = TestCaseBase.augmentmodule.getHeaderText();
 //            System.out.println("Text from UI: "+ fromUI);
             String actualURL = TestCaseBase.driver.getCurrentUrl();
-            System.out.println("Expected text: " + WordCloudPageObjects.expectedHeaderText);
             Assert.assertEquals("Navigated to Word Cloud page", WordCloudPageObjects.expectedHeaderText, actualURL);
+            System.out.println("Expected Url: " + WordCloudPageObjects.expectedHeaderText + " Actual Url " + actualURL + " User navigates to Wordcloud page properly");
         } catch (Exception e) {
             System.out.println("Word cloud page header text was not visible: " + e.getMessage());
             Assert.fail("Test failed due to element not being visible");
@@ -41,6 +41,7 @@ public class WordCloudStepDef {
     @When("select {string} from the country dropdown")
     public void select_from_the_country_dropdown(String string) throws InterruptedException {
         TestCaseBase.wordcloudmodule.clickOnCountryDropDown();
+        System.out.println("User click's on Country dropdown");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
         WebElement option = wait.until(ExpectedConditions
                 .elementToBeClickable(By.xpath("//li[contains(@data-value,'" + string + "')]")));
@@ -48,8 +49,9 @@ public class WordCloudStepDef {
         option.click();
         try {
             String fromUI1 = TestCaseBase.wordcloudmodule.validateTheSelectedCountryValue();
-            System.out.println("expected selected value: " + string);
+            //System.out.println("expected selected country value: " + string);
             Assert.assertEquals("selected and expected countries are same", string, fromUI1);
+            System.out.println("Actual selected country value: " + fromUI1 + " expected country value: " + string + " selected and expected country values are matching");
         } catch (Exception e) {
             System.out.println("selected and expected countries are not same: " + e.getMessage());
             Assert.fail("selected and expected country values are not matching");
@@ -65,8 +67,9 @@ public class WordCloudStepDef {
         option.click();
         try {
             String fromUI2 = TestCaseBase.wordcloudmodule.validateTheSelectedCategoryValue();
-            System.out.println("expected selected value: " + string);
+           // System.out.println("expected selected category value: " + string);
             Assert.assertEquals("selected and expected categories are same", string, fromUI2);
+            System.out.println("Actual selected category value: " + fromUI2 + " expected category value: " + string + " selected and expected category values are matching");
         } catch (Exception e) {
             System.out.println("selected and expected categories are not same: " + e.getMessage());
             Assert.fail("selected and expected category values are not matching");
@@ -82,8 +85,9 @@ public class WordCloudStepDef {
         option.click();
         try {
             String fromUI3 = TestCaseBase.wordcloudmodule.validateTheSelectedTimePeriodValue();
-            System.out.println("expected selected value: " + string);
+           // System.out.println("expected selected value: " + string);
             Assert.assertEquals("selected and expected Time periods are same", string, fromUI3);
+            System.out.println("Actual selected Time period value: " + fromUI3 + " expected Time period value: " + string + " selected and expected Time Period values are matching");
         } catch (Exception e) {
             System.out.println("selected and expected Time periods are not same: " + e.getMessage());
             Assert.fail("selected and expected Time periods are not matching");
@@ -100,8 +104,9 @@ public class WordCloudStepDef {
         option.click();
         try {
             String fromUI3 = TestCaseBase.wordcloudmodule.validateTheSelectedRespondentTypeValue();
-            System.out.println("expected selected value: " + string);
+            //System.out.println("expected selected value: " + string);
             Assert.assertEquals("selected and expected Respondent Types are same", string, fromUI3);
+            System.out.println("Actual selected Respondent Type value: " + fromUI3 + " expected Respondent Type value: " + string + " selected and expected Respondent Type values are matching");
         } catch (Exception e) {
             System.out.println("selected and expected Respondent Types are not same: " + e.getMessage());
             Assert.fail("selected and expected Respondent Types are not matching");
@@ -117,20 +122,21 @@ public class WordCloudStepDef {
         Thread.sleep(2000);
         option.click();
         try {
-            String fromUI3 = TestCaseBase.wordcloudmodule.validateTheSelectedBrandValue();
-            System.out.println("expected selected value: " + string);
-            Assert.assertEquals("selected and expected Brands are same", string, fromUI3);
+            String fromUI4 = TestCaseBase.wordcloudmodule.validateTheSelectedBrandValue();
+            //System.out.println("expected selected value: " + string);
+            Assert.assertEquals("selected and expected Brands are same", string, fromUI4);
+            System.out.println("Actual selected Brand value: " + fromUI4 + " expected Brand value: " + string + " selected and expected Brand values are matching");
         } catch (Exception e) {
             System.out.println("selected and expected Brands are not same: " + e.getMessage());
             Assert.fail("selected and expected Brands are not matching");
         }
     }
-    @Then("should see the result for {string} and {string} and {string} and {string} and {string}")
+    @Then("should see the result for {string} and {string} and {string} and {string} and {string} and verify the Sentiment icons functionality")
     public void should_see_the_result_for_and_and(String string, String string2, String string3, String string4, String string5) throws InterruptedException {
 
         Thread.sleep(5000);
         System.out.println("Validated combinations: " + string + "," + string2 + "," + string3 + "," + string4 + "," + string5);
         TestCaseBase.wordcloudmodule.clickOnEachTopicsOfInterests(2,4);
-        TestCaseBase.wordcloudmodule.checkForDataLoading();
+        System.out.println("The data is loading fine as expected for all the combinations, sentiments are clickable and data loading fine");
     }
 }

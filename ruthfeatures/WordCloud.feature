@@ -19,7 +19,7 @@ Feature: Word Cloud page Functionality
     And select "<time period>" from the Time period dropdown
     And select "<respondent type>" from the Respondent Type dropdown
     And select "<brand>" from the Brand dropdown
-    Then should see the result for "<country>" and "<category>" and "<time period>" and "<respondent type>" and "<brand>"
+    Then should see the result for "<country>" and "<category>" and "<time period>" and "<respondent type>" and "<brand>" and verify the Sentiment icons functionality
 
     Examples:
 

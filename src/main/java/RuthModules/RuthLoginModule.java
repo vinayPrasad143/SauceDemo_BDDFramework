@@ -51,7 +51,7 @@ public class RuthLoginModule {
     {
         driver.findElement(LoginPageObjects.verifyHomePage).isDisplayed();
         String actualText = driver.findElement(LoginPageObjects.verifyHomePage).getText();
-        System.out.println("Actual text: " + actualText);
+       // System.out.println("Actual text: " + actualText);
         return actualText;
     }
 
