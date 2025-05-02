@@ -50,11 +50,11 @@ public class RuthHooks {
 
     @After(order = 2)
     public void attachSparkReportLink(Scenario scenario) {
-        String reportPath = "file://" + System.getProperty("user.dir") + "/test-output/ExtentReport/SparkReport.html";
+        //"file://" +
+        String reportPath = System.getProperty("user.dir") + "/test-output/ExtentReport/SparkReport.html";
         scenario.attach(reportPath.getBytes(),
-                "text/uri-list",
-                "Spark Report"
-        );
+                "text/html",
+                "Spark Report"    );
     }
 
     @AfterStep

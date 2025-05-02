@@ -24,9 +24,9 @@ public class RuthLoginStepDef {
         System.out.println("User navigates to Ruth Login page");
     }
     @When("Enter {string} in the username field")
-    public void enter_in_the_username_field(String string) {
+    public void enter_in_the_username_field(String username) {
 
-        TestCaseBase.ruthloginmodule.enterUserName(string);
+        TestCaseBase.ruthloginmodule.enterUserName(username);
         System.out.println("user enters the username");
     }
     @When("click on the Next button")
@@ -43,8 +43,8 @@ public class RuthLoginStepDef {
         }
     }
     @When("Enter {string} in the password field")
-    public void enter_in_the_password_field(String string) throws InterruptedException {
-        TestCaseBase.ruthloginmodule.enterPassword(string);
+    public void enter_in_the_password_field(String password) throws InterruptedException {
+        TestCaseBase.ruthloginmodule.enterPassword(password);
         Thread.sleep(2000);
         System.out.println("user enters the Password");
     }

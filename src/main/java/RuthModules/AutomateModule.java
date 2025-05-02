@@ -25,6 +25,7 @@ public class AutomateModule {
 
     public void validateHeaderText(){
         driver.findElement(AutomatePageObjects.transcriptsHeaderText).isDisplayed();
+
     }
 
 

@@ -19,7 +19,7 @@ public class AutomateStepDef {
     WebDriver driver;
     String originalWindow;
     Set<String> allWindows;
-    @Given("I open the application and click on the tab link")
+    @Given("I open the application and click on the Automate tab")
     public void i_open_the_application_and_click_on_the_tab_link() {
         TestCaseBase.automatemodule.clickOnAutomateTab();
         driver = TestCaseBase.driver;
@@ -38,7 +38,7 @@ public class AutomateStepDef {
         }
         Thread.sleep(40000);
     }
-    @Then("I should be on {string}")
+    @Then("I should be on {string} and Validate the Navigation")
     public void i_should_be_on(String string) throws InterruptedException {
         driver = TestCaseBase.driver;
         new WebDriverWait(driver, Duration.ofSeconds(10))
@@ -51,6 +51,7 @@ public class AutomateStepDef {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(500));
             wait.until(ExpectedConditions.visibilityOfElementLocated(AutomatePageObjects.transcriptsHeaderText));
             TestCaseBase.automatemodule.validateHeaderText();
+            System.out.println("User is navigating to MR site");
         } catch (Exception e) {
             System.out.println("Transcripts header Text was not visible: " + e.getMessage());
             Assert.fail("Test failed due to element not being visible");
@@ -59,6 +60,7 @@ public class AutomateStepDef {
     @Then("I close the new tab and switch back to the original tab")
     public void i_close_the_new_tab_and_switch_back_to_the_original_tab() {
         driver.close();
+        System.out.println("Closed the MR site and switch to parent window");
         driver.switchTo().window(originalWindow);
     }
 }

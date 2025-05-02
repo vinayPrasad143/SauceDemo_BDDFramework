@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "ruthfeatures",
+        features = "ruthfeatures/Ruthlogin.feature",
         glue = "ruthstepdef",
         dryRun = false,
         tags = "@login",

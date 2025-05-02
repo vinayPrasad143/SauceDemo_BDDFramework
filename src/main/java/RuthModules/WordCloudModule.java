@@ -106,7 +106,7 @@ public class WordCloudModule {
 
             try {
                 wait.until(ExpectedConditions.presenceOfElementLocated(WordCloudPageObjects.dataLoad));
-                System.out.println("✅ data loaded");
+                System.out.println("✅ data loaded for "+ itemName);
                 for (int i = startIndex; i <= endIndex; i++) {
                     String dynamicXPath = "(//div[@id='chat-container']//*[name()='svg'])[" + i + "]";
                     try {
@@ -117,27 +117,27 @@ public class WordCloudModule {
                         Thread.sleep(1000);
                         element.click();
                         if(i==2) {
-                            System.out.println("✅ Clicked on positive sentiment");
+                            System.out.println("✅ Clicked on positive sentiment icon");
                             Thread.sleep(1000);
                             try {
                                 wait.until(ExpectedConditions.presenceOfElementLocated(WordCloudPageObjects.dataLoad));
-                                System.out.println("✅ data loaded");
+                                System.out.println("✅ data loaded for positive sentiment");
                             }
                             catch (TimeoutException e) {
                                 WebElement fallback = wait.until(ExpectedConditions.visibilityOfElementLocated(WordCloudPageObjects.noDataMessage));
-                                System.out.println("⚠️ no data validation message displayed as : " + fallback.getText());
+                                System.out.println("⚠️ no data validation message displayed as : " + fallback.getText() + "positive sentiment");
                             }
                         }
                         else if(i==3) {
-                            System.out.println("✅ Clicked on Neutral sentiment");
+                            System.out.println("✅ Clicked on Neutral sentiment icon");
                             Thread.sleep(1000);
                             try {
                                 wait.until(ExpectedConditions.presenceOfElementLocated(WordCloudPageObjects.dataLoad));
-                                System.out.println("✅ data loaded");
+                                System.out.println("✅ data loaded for Neutral sentiment");
                             }
                             catch (TimeoutException e) {
                                 WebElement fallback = wait.until(ExpectedConditions.visibilityOfElementLocated(WordCloudPageObjects.noDataMessage));
-                                System.out.println("⚠️ no data validation message displayed as : " + fallback.getText());
+                                System.out.println("⚠️ no data validation message displayed as : " + fallback.getText() + "Neutral sentiment");
                             }
 
                         }
@@ -146,11 +146,11 @@ public class WordCloudModule {
                             Thread.sleep(1000);
                             try {
                                 wait.until(ExpectedConditions.presenceOfElementLocated(WordCloudPageObjects.dataLoad));
-                                System.out.println("✅ data loaded");
+                                System.out.println("✅ data loaded for Negative sentiment");
                             }
                             catch (TimeoutException e) {
                                 WebElement fallback = wait.until(ExpectedConditions.visibilityOfElementLocated(WordCloudPageObjects.noDataMessage));
-                                System.out.println("⚠️ no data validation message displayed as : " + fallback.getText());
+                                System.out.println("⚠️ no data validation message displayed as : " + fallback.getText() + "Negative sentiment");
                             }
 
                         }
@@ -160,7 +160,7 @@ public class WordCloudModule {
                 }
             } catch (TimeoutException e) {
                 WebElement fallback = wait.until(ExpectedConditions.visibilityOfElementLocated(WordCloudPageObjects.noDataMessage));
-                System.out.println("⚠️ no data validation message displayed as : " + fallback.getText());
+                System.out.println("⚠️ no data validation message displayed as : " + fallback.getText() + " for " + itemName);
             }
 
         }
