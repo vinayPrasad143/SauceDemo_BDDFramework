@@ -15,7 +15,7 @@ public class WordCloudModule {
     WebDriverWait wait;
     public WordCloudModule(WebDriver driver){
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
     public void clickOnWordCloudTab()

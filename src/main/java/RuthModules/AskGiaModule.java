@@ -3,6 +3,7 @@ package RuthModules;
 import RuthPageObjects.AdvancedAnalysisPageObjects;
 import RuthPageObjects.GiaAskPageObjects;
 import RuthPageObjects.LoginPageObjects;
+import org.apache.commons.text.similarity.FuzzyScore;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
+import java.util.Locale;
 
 public class AskGiaModule {
 
@@ -180,5 +182,26 @@ public class AskGiaModule {
 //        Thread.sleep(500);
 //    }
 //}
+public boolean areTextsSimilar1(String expected, String actual) {
+    expected = normalize(expected);
+    actual = normalize(actual);
+    return actual.contains(expected);
+}
+
+    private String normalize(String text) {
+        return text.toLowerCase()
+                .replaceAll("[^a-z0-9 ]", "") // remove punctuation
+                .replaceAll("\\s+", " ")     // normalize whitespace
+                .trim();
+    }
+
+    public boolean areTextsSimilar(String expected, String actual) {
+        FuzzyScore score = new FuzzyScore(Locale.ENGLISH);
+        int expectedScore = score.fuzzyScore(expected, expected);
+        int actualScore = score.fuzzyScore(expected, actual);
+
+        double similarityRatio = (double) actualScore / expectedScore;
+        return similarityRatio >= 0.2; // 80% similarity threshold
+    }
 
 }

@@ -131,7 +131,7 @@ public class WordCloudStepDef {
             Assert.fail("selected and expected Brands are not matching");
         }
     }
-    @Then("should see the result for {string} and {string} and {string} and {string} and {string} and verify the Sentiment icons functionality")
+    @Then("should see the result for the selected filter combination {string} and {string} and {string} and {string} and {string} and verify the sentiment icons are clickable and data loading fine")
     public void should_see_the_result_for_and_and(String string, String string2, String string3, String string4, String string5) throws InterruptedException {
 
         Thread.sleep(5000);

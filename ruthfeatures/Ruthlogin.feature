@@ -2,7 +2,7 @@
 Feature: Login functionality
   #Gherkin language
   Background:
-    Given Open the chrome browser and Navigate to "https://gia-test.graphenesvc.com/"
+    Given Open the chrome browser and Navigate to "https://gia-demo.graphenesvc.com/"
 
   @smoke @login
   Scenario: Validate the login with the Valid Credentials
@@ -12,4 +12,4 @@ Feature: Login functionality
     And Enter "Chandana@2406" in the password field
     And click on the SignIn button
     And Click on stay signedIn no button
-    Then Verify the navigation of the ASKGIA page
+    Then Verify the navigation of the ASKGIA page by comparing with the Home page URL

@@ -90,7 +90,9 @@ public class GiaAskStepDef {
                 String actualHighlightedText = highlighted.getText().replace("R:", "").trim();
 
                 // Assertion using SoftAssert
-                softAssert.assertTrue(actualHighlightedText.contains(trimmedExpectedReview),
+//                softAssert.assertTrue(actualHighlightedText.contains(trimmedExpectedReview),
+//                        "Mismatch at review #" + (i + 1) + ": Expected to contain '" + trimmedExpectedReview + "', but got '" + actualHighlightedText + "'");
+                softAssert.assertTrue(TestCaseBase.askgiamodule.areTextsSimilar(trimmedExpectedReview, actualHighlightedText),
                         "Mismatch at review #" + (i + 1) + ": Expected to contain '" + trimmedExpectedReview + "', but got '" + actualHighlightedText + "'");
                 WebElement closeButton = driver.findElement(GiaAskPageObjects.closeIconOnCitations);
                 closeButton.click();

@@ -4,6 +4,7 @@ import RuthPageObjects.AdvancedAnalysisPageObjects;
 import RuthPageObjects.ComparePageObjects;
 import RuthPageObjects.GiaAskPageObjects;
 import RuthPageObjects.WordCloudPageObjects;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -88,15 +89,24 @@ public class AdvancedAnalysisModule {
             accordion.click();
             sleep(500);
         }
+        System.out.println("Collapse and expand buttons are working fine as expected");
     }
 
     public void clicksOnEachTopicsAndVerifyDataLoad() throws InterruptedException {
-        List<WebElement> TOI = driver.findElements(AdvancedAnalysisPageObjects.topicsSelection);
 
-        for (WebElement topic : TOI) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(AdvancedAnalysisPageObjects.topicsSelection));
+
+        List<WebElement> TOIs = driver.findElements(AdvancedAnalysisPageObjects.topicsSelection);
+        System.out.println("Number of Topics- " + TOIs.size());
+        for (WebElement topic : TOIs) {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", topic);
             topic.click();
             // Add wait or validation if needed
-            Thread.sleep(5000);// Optional pause for visibility
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+
+            }// Optional pause for visibility
 
             // Extract text from <span> inside the clicked element
             WebElement span = topic.findElement(AdvancedAnalysisPageObjects.TOIName);

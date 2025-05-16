@@ -120,8 +120,9 @@ public class AdvancedAnalysisStepDef {
             Assert.fail("selected and expected Respondent Types are not matching");
         }
     }
-    @Then("user should see the result for for all the Topics for {string} and {string} and {string} and {string} combination")
+    @Then("user should see the result for all the Topics for the selected filter combination {string} and {string} and {string} and {string} combination")
     public void user_should_see_the_result_for_all_the_Topics_for_and_and_and(String string, String string2, String string3, String string4) throws InterruptedException {
+        Thread.sleep(5000);
         System.out.println("Validated combinations: " + string + "," + string2 + "," + string3 + "," + string4);
         TestCaseBase.advancedanalysismodule.clicksOnEachTopicsAndVerifyDataLoad();
     }

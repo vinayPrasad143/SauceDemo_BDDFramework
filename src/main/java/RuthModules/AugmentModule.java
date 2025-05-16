@@ -6,7 +6,6 @@ import RuthPageObjects.WordCloudPageObjects;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,7 @@ public class AugmentModule {
 
     public AugmentModule(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
     public void clickOnAugmentTab() {
@@ -75,7 +74,7 @@ public class AugmentModule {
             item.click();
             // Wait (adjust for animations or fetch delay)
             try {
-                Thread.sleep(5000);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
 
             }
@@ -93,7 +92,7 @@ public class AugmentModule {
                 // Click on the element
                 theme.click();
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
 
                 }
@@ -145,7 +144,7 @@ public class AugmentModule {
         for (int i = startIndex; i <= endIndex; i++) {
             String dynamicXPath = "(//div[@class='flex gap-3 pr-2']//*[name()='svg'])[" + i + "]";
             try {
-                WebElement element = new WebDriverWait(driver, Duration.ofSeconds(10))
+                WebElement element = new WebDriverWait(driver, Duration.ofSeconds(5))
                         .until(ExpectedConditions.elementToBeClickable(By.xpath(dynamicXPath)));
 
                 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);

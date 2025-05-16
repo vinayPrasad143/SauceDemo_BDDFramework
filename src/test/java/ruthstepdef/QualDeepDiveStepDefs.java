@@ -124,7 +124,7 @@ public class QualDeepDiveStepDefs {
     }
     @Then("i should see the result for {string} and {string} and {string} and {string} and {string}")
     public void i_should_see_the_result_for_and_and_and_and(String string, String string2, String string3, String string4, String string5) throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         System.out.println("Validated combinations: " + string + "," + string2 + "," + string3 + "," + string4 + "," + string5);
         TestCaseBase.qualdeepdivemodule.clickOnEachTOIAndSubTopicsAndValidateData(2,4);
     }

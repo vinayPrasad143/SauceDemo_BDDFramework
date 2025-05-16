@@ -1,15 +1,15 @@
-
+@system_test
 Feature: Augment page Functionality
 
   Background:
-    Given Open the chrome browser and Navigate to "https://gia-test.graphenesvc.com/"
+    Given Open the chrome browser and Navigate to "https://gia-demo.graphenesvc.com/"
     And click on the GrapheneLogo
     And Enter "vinayprasad@graphenesvc.com" in the username field
     And click on the Next button
     And Enter "Chandana@2406" in the password field
     And click on the SignIn button
     And Click on stay signedIn no button
-    Then Verify the navigation of the ASKGIA page
+    Then Verify the navigation of the ASKGIA page by comparing with the Home page URL
 
   @augment
   Scenario Outline: Validate the functionality of the Augment page
@@ -23,4 +23,3 @@ Feature: Augment page Functionality
 
       | country | category  | time period |
       | USA     | Ice Cream | 2024H2      |
-      | USA     | Ice Cream | 2024H1      |

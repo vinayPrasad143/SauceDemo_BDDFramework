@@ -17,7 +17,7 @@ public class QualDeepDiveModule {
     WebDriverWait wait;
     public QualDeepDiveModule(WebDriver driver){
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
     public void clickQualDeepDiveTab()
@@ -96,7 +96,7 @@ public class QualDeepDiveModule {
             // Click on the item
             item.click();
             try {
-                Thread.sleep(5000);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
 
             }
@@ -114,7 +114,7 @@ public class QualDeepDiveModule {
                 // Click on the item
                 subTopic.click();
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
 
                 }

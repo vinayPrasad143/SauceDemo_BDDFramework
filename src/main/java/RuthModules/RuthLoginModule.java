@@ -55,8 +55,4 @@ public class RuthLoginModule {
         return actualText;
     }
 
-
-
-
-
 }

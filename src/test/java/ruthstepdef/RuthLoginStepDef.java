@@ -79,7 +79,7 @@ public class RuthLoginStepDef {
         }
         Thread.sleep(30000);
     }
-    @Then("Verify the navigation of the ASKGIA page")
+    @Then("Verify the navigation of the ASKGIA page by comparing with the Home page URL")
     public void verify_the_navigation_of_the_ASKGIA_page() throws InterruptedException {
         driver = TestCaseBase.driver;
         try {

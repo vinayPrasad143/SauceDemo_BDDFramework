@@ -17,7 +17,7 @@ public class AdvancedAnalysisPageObjects {
                 public static By respondentTypeFilter = By.xpath("(//div[@role='combobox'])[4]");
                 public static By selectedRespondentTypeFilter = By.xpath("(//div[@role='combobox']//span)[4]");
                 public static By applyFilterButton = By.xpath("//div[@aria-label='Apply filters to generate insights']//button[contains(@class,'MuiButton-contained')]");
-                public static By topicsSelection = By.xpath("//div[contains(@class, 'flex') and contains(@class, 'cursor-pointer') and contains(@class, 'break-all')]");
+                public static By topicsSelection = By.xpath("//div[contains(@class, 'justify-between') and contains(@class, 'hover:cursor-pointer')]");
                 //div[@role='region']//div[contains(@class, 'cursor-pointer') and contains(@class, 'break-all')]--for Topics selection
                 public static By defaultScreenMessage = By.xpath("//p[contains(text(), 'Get detailed insights')]");
                 public static String expectedDefaultMessage = "Get detailed insights on trending topics";
