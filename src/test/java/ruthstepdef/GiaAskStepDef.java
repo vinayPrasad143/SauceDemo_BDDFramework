@@ -5,8 +5,7 @@ import RuthPageObjects.GiaAskPageObjects;
 import RuthPageObjects.LoginPageObjects;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,7 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 import tests.TestCaseBase;
 import utilities.WordUtility;
-
 import java.time.Duration;
 import java.util.List;
 
@@ -103,8 +101,8 @@ public class GiaAskStepDef {
         }
     @Then("click on like icon and verify the like icon is highlighted or not")
     public void click_on_like_button_and_verify_the_like_button_is_highlighted_or_not() {
-        Assert.assertTrue("Helpful icon is not displayed", TestCaseBase.askgiamodule.isHelpfulButtonDisplayed());
-        Assert.assertTrue("Helpful icon is not enabled", TestCaseBase.askgiamodule.isHelpfulButtonEnabled());
+        Assert.assertTrue(TestCaseBase.askgiamodule.isHelpfulButtonDisplayed(), "Helpful icon is not displayed");
+        Assert.assertTrue(TestCaseBase.askgiamodule.isHelpfulButtonEnabled(),"Helpful icon is not enabled");
 
         TestCaseBase.askgiamodule.clickHelpfulButton();
         System.out.println("Click on Helpful icon");
@@ -113,13 +111,13 @@ public class GiaAskStepDef {
         String iconClass = TestCaseBase.askgiamodule.getHelpfulIconClass();
         System.out.println("Post-click SVG class: " + iconClass);
         // Replace with your actual highlighted class if different
-        Assert.assertTrue("Helpfull icon is not highlighted after click", iconClass.contains("fill-brand-dark"));
+        Assert.assertTrue(iconClass.contains("fill-brand-dark"), "Helpful icon is not highlighted after click");
 
     }
     @Then("click on unlike icon and verify the unlike icon is highlighted or not")
     public void click_on_unlike_button_and_verify_the_unlike_button_is_highlighted_or_not() {
-        Assert.assertTrue("NotHelpful icon is not displayed", TestCaseBase.askgiamodule.isNotHelpfulButtonDisplayed());
-        Assert.assertTrue("NotHelpful icon is not enabled", TestCaseBase.askgiamodule.isNotHelpfulButtonEnabled());
+        Assert.assertTrue(TestCaseBase.askgiamodule.isNotHelpfulButtonDisplayed(), "NotHelpful icon is not displayed");
+        Assert.assertTrue(TestCaseBase.askgiamodule.isNotHelpfulButtonEnabled(),"NotHelpful icon is not enabled");
 
         TestCaseBase.askgiamodule.clickOnNotHelpfulButton();
         System.out.println("Click on NotHelpful icon");
@@ -129,7 +127,7 @@ public class GiaAskStepDef {
         String iconClass = TestCaseBase.askgiamodule.getNotHelpfulIconClass();
         System.out.println("Post-click SVG class: " + iconClass);
         // Replace with your actual highlighted class if different
-        Assert.assertTrue("NotHelpful Button is not highlighted after click", iconClass.contains("fill-brand-dark"));
+        Assert.assertTrue( iconClass.contains("fill-brand-dark"),"NotHelpful Button is not highlighted after click");
     }
 
     @Then("click on the copy and verify that the copy of the response is copied to the word doc or not")

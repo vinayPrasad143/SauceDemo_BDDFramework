@@ -3,8 +3,6 @@ package RuthModules;
 import RuthPageObjects.LoginPageObjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageobjects.Loginpageobjects;
-import pageobjects.Productspageobjects;
 
 import java.time.Duration;
 

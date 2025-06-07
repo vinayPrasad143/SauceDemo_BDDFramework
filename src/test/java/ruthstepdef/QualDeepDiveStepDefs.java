@@ -5,7 +5,7 @@ import RuthPageObjects.WordCloudPageObjects;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
+import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,7 +31,7 @@ public class QualDeepDiveStepDefs {
 //            System.out.println("Text from UI: "+ fromUI);
             String actualURL = TestCaseBase.driver.getCurrentUrl();
             System.out.println("Expected text: " + QualDeepDivePageObjects.expectedHeaderText);
-            Assert.assertEquals("Navigated to DeepDive page", QualDeepDivePageObjects.expectedHeaderText, actualURL);
+            Assert.assertEquals(actualURL, QualDeepDivePageObjects.expectedHeaderText,"Navigated to DeepDive page");
         } catch (Exception e) {
             System.out.println("DeepDive page header text was not visible: " + e.getMessage());
             Assert.fail("Test failed due to element not being visible");
@@ -48,7 +48,7 @@ public class QualDeepDiveStepDefs {
         try {
             String fromUI1 = TestCaseBase.qualdeepdivemodule.validateTheSelectedCountryValue();
             System.out.println("expected selected value: " + string);
-            Assert.assertEquals("selected and expected countries are same", string, fromUI1);
+            Assert.assertEquals(fromUI1, string,"selected and expected countries are same");
         } catch (Exception e) {
             System.out.println("selected and expected countries are not same: " + e.getMessage());
             Assert.fail("selected and expected country values are not matching");
@@ -65,7 +65,7 @@ public class QualDeepDiveStepDefs {
         try {
             String fromUI2 = TestCaseBase.qualdeepdivemodule.validateTheSelectedCategoryValue();
             System.out.println("expected selected value: " + string);
-            Assert.assertEquals("selected and expected categories are same", string, fromUI2);
+            Assert.assertEquals(fromUI2, string,"selected and expected categories are same");
         } catch (Exception e) {
             System.out.println("selected and expected categories are not same: " + e.getMessage());
             Assert.fail("selected and expected category values are not matching");
@@ -82,7 +82,7 @@ public class QualDeepDiveStepDefs {
         try {
             String fromUI3 = TestCaseBase.qualdeepdivemodule.validateTheSelectedTimePeriodValue();
             System.out.println("expected selected value: " + string);
-            Assert.assertEquals("selected and expected Time periods are same", string, fromUI3);
+            Assert.assertEquals(fromUI3, string,"selected and expected Time periods are same");
         } catch (Exception e) {
             System.out.println("selected and expected Time periods are not same: " + e.getMessage());
             Assert.fail("selected and expected Time periods are not matching");
@@ -99,7 +99,7 @@ public class QualDeepDiveStepDefs {
         try {
             String fromUI3 = TestCaseBase.qualdeepdivemodule.validateTheSelectedRespondentTypeValue();
             System.out.println("expected selected value: " + string);
-            Assert.assertEquals("selected and expected Respondent Types are same", string, fromUI3);
+            Assert.assertEquals(fromUI3, string,"selected and expected Respondent Types are same");
         } catch (Exception e) {
             System.out.println("selected and expected Respondent Types are not same: " + e.getMessage());
             Assert.fail("selected and expected Respondent Types are not matching");
@@ -116,7 +116,7 @@ public class QualDeepDiveStepDefs {
         try {
             String fromUI3 = TestCaseBase.qualdeepdivemodule.validateTheSelectedBrandValue();
             System.out.println("expected selected value: " + string);
-            Assert.assertEquals("selected and expected Brands are same", string, fromUI3);
+            Assert.assertEquals(fromUI3, string,"selected and expected Brands are same");
         } catch (Exception e) {
             System.out.println("selected and expected Brands are not same: " + e.getMessage());
             Assert.fail("selected and expected Brands are not matching");

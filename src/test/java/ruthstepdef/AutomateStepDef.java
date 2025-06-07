@@ -5,7 +5,7 @@ import RuthPageObjects.GiaAskPageObjects;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
+import org.testng.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -44,7 +44,7 @@ public class AutomateStepDef {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.urlContains(string));
         String currentUrl = driver.getCurrentUrl();
-        Assert.assertTrue("URL doesn't match", currentUrl.contains(string));
+        Assert.assertTrue(currentUrl.contains(string), "URL doesn't match");
         System.out.println("Landed on correct URL: " + currentUrl);
         Thread.sleep(20000);
         try {

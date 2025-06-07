@@ -4,7 +4,7 @@ import RuthPageObjects.AdvancedAnalysisPageObjects;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
+import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,7 +31,7 @@ public class AdvancedAnalysisStepDef {
 //            System.out.println("Text from UI: "+ fromUI);
             String actualURL = TestCaseBase.driver.getCurrentUrl();
             System.out.println("Expected text: " + AdvancedAnalysisPageObjects.expectedHeaderText);
-            Assert.assertEquals("Navigated to Advanced Analysis page", AdvancedAnalysisPageObjects.expectedHeaderText, actualURL);
+            Assert.assertEquals(actualURL,AdvancedAnalysisPageObjects.expectedHeaderText,"Navigated to Advanced Analysis page" );
             System.out.println("User navigates to Advanced Analysis page");
         } catch (Exception e) {
             System.out.println("Advanced Analysis page header text was not visible: " + e.getMessage());
@@ -49,7 +49,7 @@ public class AdvancedAnalysisStepDef {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement textElement = wait.until(ExpectedConditions.visibilityOfElementLocated(AdvancedAnalysisPageObjects.defaultScreenMessage));
         String actualText = textElement.getText();
-        Assert.assertEquals("Text content mismatch!", string, actualText);
+        Assert.assertEquals(actualText, string,"Text content mismatch!");
         System.out.println("default insight section is displayed with " + string + "when nothing selected on Topics section");
     }
     @When("select {string} from the country dropdown filter")
@@ -63,7 +63,7 @@ public class AdvancedAnalysisStepDef {
         try {
             String fromUI1 = TestCaseBase.advancedanalysismodule.validateTheSelectedCountryValue();
             System.out.println("expected selected value: " + string);
-            Assert.assertEquals("selected and expected countries are same", string, fromUI1);
+            Assert.assertEquals(fromUI1, string,"selected and expected countries are same");
         } catch (Exception e) {
             System.out.println("selected and expected countries are not same: " + e.getMessage());
             Assert.fail("selected and expected country values are not matching");
@@ -80,7 +80,7 @@ public class AdvancedAnalysisStepDef {
         try {
             String fromUI2 = TestCaseBase.advancedanalysismodule.validateTheSelectedCategoryValue();
             System.out.println("expected selected value: " + string);
-            Assert.assertEquals("selected and expected categories are same", string, fromUI2);
+            Assert.assertEquals(fromUI2, string,"selected and expected categories are same");
         } catch (Exception e) {
             System.out.println("selected and expected categories are not same: " + e.getMessage());
             Assert.fail("selected and expected category values are not matching");
@@ -97,7 +97,7 @@ public class AdvancedAnalysisStepDef {
         try {
             String fromUI3 = TestCaseBase.advancedanalysismodule.validateTheSelectedTimePeriodValue();
             System.out.println("expected selected value: " + string);
-            Assert.assertEquals("selected and expected Time periods are same", string, fromUI3);
+            Assert.assertEquals(fromUI3, string,"selected and expected Time periods are same");
         } catch (Exception e) {
             System.out.println("selected and expected Time periods are not same: " + e.getMessage());
             Assert.fail("selected and expected Time periods are not matching");
@@ -114,7 +114,7 @@ public class AdvancedAnalysisStepDef {
         try {
             String fromUI3 = TestCaseBase.advancedanalysismodule.validateTheSelectedRespondentTypeValue();
             System.out.println("expected selected value: " + string);
-            Assert.assertEquals("selected and expected Respondent Types are same", string, fromUI3);
+            Assert.assertEquals(fromUI3, string,"selected and expected Respondent Types are same");
         } catch (Exception e) {
             System.out.println("selected and expected Respondent Types are not same: " + e.getMessage());
             Assert.fail("selected and expected Respondent Types are not matching");
@@ -135,8 +135,8 @@ public class AdvancedAnalysisStepDef {
 
     @Then("click on Helpful icon and verify the Helpful icon is highlighted or not")
     public void click_on_like_button_and_verify_the_like_button_is_highlighted_or_not() {
-        Assert.assertTrue("Helpful icon is not displayed", TestCaseBase.advancedanalysismodule.isHelpfulButtonDisplayed());
-        Assert.assertTrue("Helpful icon is not enabled", TestCaseBase.advancedanalysismodule.isHelpfulButtonEnabled());
+        Assert.assertTrue(TestCaseBase.advancedanalysismodule.isHelpfulButtonDisplayed(), "Helpful icon is not displayed");
+        Assert.assertTrue(TestCaseBase.advancedanalysismodule.isHelpfulButtonEnabled(), "Helpful icon is not enabled");
 
         TestCaseBase.advancedanalysismodule.clickHelpfulButton();
         System.out.println("Click on Helpful icon");
@@ -145,14 +145,14 @@ public class AdvancedAnalysisStepDef {
         String iconClass = TestCaseBase.advancedanalysismodule.getHelpfulIconClass();
         //System.out.println("Post-click SVG class: " + iconClass);
         // Replace with your actual highlighted class if different
-        Assert.assertTrue("Helpful icon is not highlighted after click", iconClass.contains("fill-brand-dark"));
+        Assert.assertTrue(iconClass.contains("fill-brand-dark"),"Helpful icon is not highlighted after click");
         System.out.println("Helpful icon is highlighted as expected after click");
 
     }
     @Then("click on NotHelpful icon and verify the NotHelpful icon is highlighted or not")
     public void click_on_unlike_button_and_verify_the_unlike_button_is_highlighted_or_not() {
-        Assert.assertTrue("NotHelpful icon is not displayed", TestCaseBase.advancedanalysismodule.isNotHelpfulButtonDisplayed());
-        Assert.assertTrue("NotHelpful icon is not enabled", TestCaseBase.advancedanalysismodule.isNotHelpfulButtonEnabled());
+        Assert.assertTrue(TestCaseBase.advancedanalysismodule.isNotHelpfulButtonDisplayed(),"NotHelpful icon is not displayed");
+        Assert.assertTrue(TestCaseBase.advancedanalysismodule.isNotHelpfulButtonEnabled(),"NotHelpful icon is not enabled");
 
         TestCaseBase.advancedanalysismodule.clickOnNotHelpfulButton();
         System.out.println("Click on NotHelpful icon");
@@ -162,7 +162,7 @@ public class AdvancedAnalysisStepDef {
         String iconClass = TestCaseBase.advancedanalysismodule.getNotHelpfulIconClass();
         //System.out.println("Post-click SVG class: " + iconClass);
         // Replace with your actual highlighted class if different
-        Assert.assertTrue("NotHelpful Button is not highlighted after click", iconClass.contains("fill-brand-dark"));
+        Assert.assertTrue(iconClass.contains("fill-brand-dark"), "NotHelpful Button is not highlighted after click");
         System.out.println("NotHelpful icon is highlighted as expected after click");
     }
 
@@ -181,7 +181,7 @@ public class AdvancedAnalysisStepDef {
         WebElement summaryElement = driver.findElement(By.xpath("//div[contains(@class,'italic')]"));
         String actualText = summaryElement.getText().trim();
 
-        Assert.assertEquals("Filter summary does not match!", expectedText, actualText);
+        Assert.assertEquals(actualText,  expectedText,"Filter summary does not match!" );
         System.out.println("Expected summary text is "+ expectedText + " matches with the Actual summary text + " + actualText);
     }
 }

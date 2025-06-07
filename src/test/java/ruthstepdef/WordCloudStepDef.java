@@ -4,7 +4,7 @@ import RuthPageObjects.WordCloudPageObjects;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
+import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -30,7 +30,7 @@ public class WordCloudStepDef {
 //            String fromUI = TestCaseBase.augmentmodule.getHeaderText();
 //            System.out.println("Text from UI: "+ fromUI);
             String actualURL = TestCaseBase.driver.getCurrentUrl();
-            Assert.assertEquals("Navigated to Word Cloud page", WordCloudPageObjects.expectedHeaderText, actualURL);
+            Assert.assertEquals(actualURL, WordCloudPageObjects.expectedHeaderText,"Navigated to Word Cloud page");
             System.out.println("Expected Url: " + WordCloudPageObjects.expectedHeaderText + " Actual Url " + actualURL + " User navigates to Wordcloud page properly");
         } catch (Exception e) {
             System.out.println("Word cloud page header text was not visible: " + e.getMessage());
@@ -50,7 +50,7 @@ public class WordCloudStepDef {
         try {
             String fromUI1 = TestCaseBase.wordcloudmodule.validateTheSelectedCountryValue();
             //System.out.println("expected selected country value: " + string);
-            Assert.assertEquals("selected and expected countries are same", string, fromUI1);
+            Assert.assertEquals(fromUI1, string,"selected and expected countries are same");
             System.out.println("Actual selected country value: " + fromUI1 + " expected country value: " + string + " selected and expected country values are matching");
         } catch (Exception e) {
             System.out.println("selected and expected countries are not same: " + e.getMessage());
@@ -68,7 +68,7 @@ public class WordCloudStepDef {
         try {
             String fromUI2 = TestCaseBase.wordcloudmodule.validateTheSelectedCategoryValue();
            // System.out.println("expected selected category value: " + string);
-            Assert.assertEquals("selected and expected categories are same", string, fromUI2);
+            Assert.assertEquals(fromUI2, string,"selected and expected categories are same");
             System.out.println("Actual selected category value: " + fromUI2 + " expected category value: " + string + " selected and expected category values are matching");
         } catch (Exception e) {
             System.out.println("selected and expected categories are not same: " + e.getMessage());
@@ -86,7 +86,7 @@ public class WordCloudStepDef {
         try {
             String fromUI3 = TestCaseBase.wordcloudmodule.validateTheSelectedTimePeriodValue();
            // System.out.println("expected selected value: " + string);
-            Assert.assertEquals("selected and expected Time periods are same", string, fromUI3);
+            Assert.assertEquals(fromUI3, string,"selected and expected Time periods are same");
             System.out.println("Actual selected Time period value: " + fromUI3 + " expected Time period value: " + string + " selected and expected Time Period values are matching");
         } catch (Exception e) {
             System.out.println("selected and expected Time periods are not same: " + e.getMessage());
@@ -105,7 +105,7 @@ public class WordCloudStepDef {
         try {
             String fromUI3 = TestCaseBase.wordcloudmodule.validateTheSelectedRespondentTypeValue();
             //System.out.println("expected selected value: " + string);
-            Assert.assertEquals("selected and expected Respondent Types are same", string, fromUI3);
+            Assert.assertEquals(fromUI3, string,"selected and expected Respondent Types are same");
             System.out.println("Actual selected Respondent Type value: " + fromUI3 + " expected Respondent Type value: " + string + " selected and expected Respondent Type values are matching");
         } catch (Exception e) {
             System.out.println("selected and expected Respondent Types are not same: " + e.getMessage());
@@ -124,7 +124,7 @@ public class WordCloudStepDef {
         try {
             String fromUI4 = TestCaseBase.wordcloudmodule.validateTheSelectedBrandValue();
             //System.out.println("expected selected value: " + string);
-            Assert.assertEquals("selected and expected Brands are same", string, fromUI4);
+            Assert.assertEquals(fromUI4, string,"selected and expected Brands are same");
             System.out.println("Actual selected Brand value: " + fromUI4 + " expected Brand value: " + string + " selected and expected Brand values are matching");
         } catch (Exception e) {
             System.out.println("selected and expected Brands are not same: " + e.getMessage());

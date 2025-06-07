@@ -5,41 +5,48 @@ import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+//import io.qameta.allure.Allure;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import tests.TestCaseBase;
+
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 
 public class RuthHooks {
 
     private final ByteArrayOutputStream consoleOutput = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
 
-    @Before
-    public void setup(){
-
-    }
 
     @Before(order = 0)
     public void setUpConsoleCapture() {
+
         System.setOut(new PrintStream(consoleOutput));
     }
-//    public static WebDriver getDriver() {
-//        return driver;  // ✅ Provide access to WebDriver
-//    }
+
 
     @After(order = 1)
-    public void teardown(Scenario scenario) throws IOException {
+    public void tearDown(Scenario scenario) throws IOException {
         if (scenario.isFailed()) {
             byte[] screenshot = ((TakesScreenshot) TestCaseBase.driver).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", "Failed Step Screenshot");
             ExtentCucumberAdapter.addTestStepScreenCaptureFromPath("screenshot.png");
+//            Allure.addAttachment("Failed Screenshot", new ByteArrayInputStream(screenshot));
+            // attach text logs
+//            attachHtmlLog("Scenario Name: " + scenario.getName() + "<br>Status: " + scenario.getStatus());
         }
         TestCaseBase.tearDown();
         System.out.println("🛑 Browser closed.");
     }
+
+//    private void attachHtmlLog(String htmlContent) {
+//        Allure.addAttachment("Scenario Log", "text/html",
+//                new ByteArrayInputStream(htmlContent.getBytes(StandardCharsets.UTF_8)), ".html");
+//    }
 
     @After(order = 0)
     public void attachConsoleLogs(Scenario scenario) {

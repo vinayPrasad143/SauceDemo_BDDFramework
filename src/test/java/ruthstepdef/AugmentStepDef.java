@@ -5,7 +5,7 @@ import RuthPageObjects.LoginPageObjects;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
+import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,7 +29,7 @@ public class AugmentStepDef {
             String fromUI = TestCaseBase.augmentmodule.getHeaderText();
             System.out.println("Text from UI: "+ fromUI);
             System.out.println("Expected text: " + AugmentPageObjects.expectedHeaderText);
-            Assert.assertEquals("Navigated to Augment page", AugmentPageObjects.expectedHeaderText, fromUI);
+            Assert.assertEquals(fromUI, AugmentPageObjects.expectedHeaderText,"Navigated to Augment page");
         } catch (Exception e) {
             System.out.println("Augment page header text was not visible: " + e.getMessage());
             Assert.fail("Test failed due to element not being visible");
@@ -46,7 +46,7 @@ public class AugmentStepDef {
         try {
             String fromUI1 = TestCaseBase.augmentmodule.validateTheSelectedCountryValue();
             System.out.println("expected selected value: " + string);
-            Assert.assertEquals("selected and expected countries are same", string, fromUI1);
+            Assert.assertEquals(fromUI1, string,"selected and expected countries are same");
         } catch (Exception e) {
             System.out.println("selected and expected countries are not same: " + e.getMessage());
             Assert.fail("selected and expected country values are not matching");
@@ -62,7 +62,7 @@ public class AugmentStepDef {
         try {
             String fromUI2 = TestCaseBase.augmentmodule.validateTheSelectedCategoryValue();
             System.out.println("expected selected value: " + string);
-            Assert.assertEquals("selected and expected categories are same", string, fromUI2);
+            Assert.assertEquals(fromUI2, string,"selected and expected categories are same");
         } catch (Exception e) {
             System.out.println("selected and expected categories are not same: " + e.getMessage());
             Assert.fail("selected and expected category values are not matching");
@@ -78,7 +78,7 @@ public class AugmentStepDef {
         try {
             String fromUI3 = TestCaseBase.augmentmodule.validateTheSelectedTimePeriodValue();
             System.out.println("expected selected value: " + string);
-            Assert.assertEquals("selected and expected Time periods are same", string, fromUI3);
+            Assert.assertEquals(fromUI3, string,"selected and expected Time periods are same");
         } catch (Exception e) {
             System.out.println("selected and expected Time periods are not same: " + e.getMessage());
             Assert.fail("selected and expected Time periods are not matching");

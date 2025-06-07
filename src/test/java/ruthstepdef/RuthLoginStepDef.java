@@ -5,7 +5,7 @@ import RuthPageObjects.LoginPageObjects;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
+import org.testng.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -91,7 +91,7 @@ public class RuthLoginStepDef {
             Assert.fail("Test failed due to element not being visible");
         }
         String fromUI = TestCaseBase.ruthloginmodule.getHeaderText();
-        Assert.assertEquals("Navigated to Home page", LoginPageObjects.expectedHeaderText, fromUI);
+        Assert.assertEquals(fromUI, LoginPageObjects.expectedHeaderText,"Navigated to Home page");
         Thread.sleep(10000);
         System.out.println("ActualText from UI: "+ fromUI + " ExpectedText " + LoginPageObjects.expectedHeaderText + " Both the texts are matching");
         System.out.println("Navigated to AskGia page");

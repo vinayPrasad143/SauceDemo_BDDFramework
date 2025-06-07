@@ -1,11 +1,10 @@
 package testrunner;
 
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
 
-@RunWith(Cucumber.class)
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
+
 @CucumberOptions(
         features = "@target/failed_scenarios.txt",
         glue = "ruthstepdef",
@@ -24,5 +23,5 @@ import org.junit.runner.RunWith;
           "rerun:target/failed_scenarios.txt"},
           monochrome = true
      )
-public class FailedTestRunner {
+public class FailedTestRunner extends AbstractTestNGCucumberTests {
 }
